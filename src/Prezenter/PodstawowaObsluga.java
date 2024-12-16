@@ -36,12 +36,12 @@ public abstract class PodstawowaObsluga {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean ZweryfikujDokumenty() {
+	public void ZweryfikujDokumenty() {
 		// TODO - implement PodstawowaObsluga.ZweryfikujDokumenty
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean ZweryfikujTrzezwosc() {
+	public void ZweryfikujTrzezwosc() {
 		// TODO - implement PodstawowaObsluga.ZweryfikujTrzezwosc
 		throw new UnsupportedOperationException();
 	}

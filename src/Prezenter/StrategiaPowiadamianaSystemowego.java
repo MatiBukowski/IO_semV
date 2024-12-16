@@ -4,11 +4,7 @@ public class StrategiaPowiadamianaSystemowego implements StrategiaTworzeniaPowia
 
 	private String wiadomosc;
 
-	/**
-	 * 
-	 * @param czas
-	 */
-	public void StworzPowiadomienie(long czas) {
+	public void StworzPowiadomienie() {
 		// TODO - implement StrategiaPowiadamianaSystemowego.StworzPowiadomienie
 		throw new UnsupportedOperationException();
 	}

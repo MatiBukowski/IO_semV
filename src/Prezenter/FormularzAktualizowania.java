@@ -5,10 +5,9 @@ import Model.*;
 public class FormularzAktualizowania extends Formularz {
 
 	private int id_sprzetu;
-	private String rodzajSprzetu;
+	private String typ;
+	private String rodzaj;
 	private String silnik;
-	private int moc;
-	private String opis;
 
 	/**
 	 * 
@@ -19,13 +18,21 @@ public class FormularzAktualizowania extends Formularz {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param pojazd
-	 */
 	public FormularzAktualizowania(Pojazd pojazd) {
-		// TODO - implement FormularzAktualizowania.FormularzAktualizowania
-		throw new UnsupportedOperationException();
+		id_sprzetu = pojazd.getId_sprzetu();
+		rodzaj = pojazd.getRodzaj();
+		silnik = pojazd.getSilnik();
 	}
 
+	public String getRodzaj() {
+		return rodzaj;
+	}
+
+	public String getTyp() {
+		return typ;
+	}
+
+	public String getSilnik() {
+		return silnik;
+	}
 }

@@ -2,14 +2,14 @@ package Prezenter;
 
 public class KontekstPowiadomienia {
 
-	private StrategiaTworzeniaPowiadomien strategia;
+	public void KontekstPowiadomieniaSYS() {
+		StrategiaTworzeniaPowiadomien strategia = new StrategiaPowiadamianaSystemowego();
+		strategia.StworzPowiadomienie();
+	}
 
-	/**
-	 * 
-	 * @param strategia
-	 */
-	public void KontekstPowiadomienia(StrategiaTworzeniaPowiadomien strategia) {
-
+	public void KontekstPowiadomieniaSMS() {
+		StrategiaTworzeniaPowiadomien strategia = new StrategiaPowiadamianiaSMS();
+		strategia.StworzPowiadomienie();
 	}
 
 }

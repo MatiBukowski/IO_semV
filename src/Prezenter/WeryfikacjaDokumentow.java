@@ -40,17 +40,29 @@ public class WeryfikacjaDokumentow extends PodstawowaObsluga implements IWeryfik
 	 * @param formularzDanychKlienta
 	 */
 	public void WyslijFormularz(Formularz formularzDanychKlienta) {
-
+		ZweryfikujDokumenty();
 	}
 
-	public boolean ZweryfikujDokumenty() {
-		// TODO - implement WeryfikacjaDokumentow.ZweryfikujDokumenty
-		throw new UnsupportedOperationException();
+	public void ZweryfikujDokumenty() {
+		WyslijDokumenty();
+		decyzja = ZwrocDecyzje();
+
+		if(!decyzja) {
+			Powiadomienie powiadomienieOWeryfikacji = new Powiadomienie();
+			powiadomienieOWeryfikacji.PowiadomSYS();
+			Zakoncz();
+		}
 	}
 
 	public void Zakoncz() {
-		// TODO - implement WeryfikacjaDokumentow.Zakoncz
-		throw new UnsupportedOperationException();
+		System.exit(0);
 	}
 
+	public boolean getDecyzja() {
+		return decyzja;
+	}
+
+	public boolean isDecyzja() {
+		return decyzja;
+	}
 }

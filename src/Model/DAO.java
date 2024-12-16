@@ -1,6 +1,8 @@
 package Model;
 
-public interface DAO {
+import java.util.List;
+
+public interface DAO<T> {
 
 	List<T> WypiszWszystkie();
 

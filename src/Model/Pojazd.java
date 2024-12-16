@@ -5,10 +5,35 @@ public class Pojazd {
 	private int id_sprzetu;
 	private String rodzaj;
 	private String typ;
+	private String silnik;
 	private boolean status_dostepnosci;
 
 	public int getId_sprzetu() {
 		return this.id_sprzetu;
+	}
+
+	public String getRodzaj() {
+		return rodzaj;
+	}
+
+	public String getTyp() {
+		return typ;
+	}
+
+	public String getSilnik() {
+		return silnik;
+	}
+
+	public void setRodzaj(String rodzaj) {
+		this.rodzaj = rodzaj;
+	}
+
+	public void setTyp(String typ) {
+		this.typ = typ;
+	}
+
+	public void setSilnik(String silnik) {
+		this.silnik = silnik;
 	}
 
 	/**

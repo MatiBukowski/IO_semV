@@ -2,57 +2,55 @@ package Model;
 
 import Prezenter.*;
 
+import java.util.List;
+
 public class FasadaZwracaniaPojazdu implements ZwroceniePojazdu {
 
 	private List<Pojazd> pojazdy;
 
-	/**
-	 * 
-	 * @param id_sprzetu
-	 */
 	public Pojazd GetPojazd(int id_sprzetu) {
 		// TODO - implement FasadaZwracaniaPojazdu.GetPojazd
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param id_sprzetu
-	 */
 	public void UsunPojazd(int id_sprzetu) {
-		// TODO - implement FasadaZwracaniaPojazdu.UsunPojazd
-		throw new UnsupportedOperationException();
+		PojazdDAO pojazdDAO = new PojazdDAO();
+		Pojazd pojazd = pojazdDAO.ZnajdzPojazd(id_sprzetu);
+
+		pojazdDAO.Usun(pojazd);
 	}
 
-	/**
-	 * 
-	 * @param formularz
-	 */
 	public void DodajPojazd(Formularz formularz) {
-		// TODO - implement FasadaZwracaniaPojazdu.DodajPojazd
-		throw new UnsupportedOperationException();
+		StworzPojazd(formularz);
 	}
 
-	/**
-	 * 
-	 * @param formularz
-	 */
 	public void AktualizujPojazd(Formularz formularz) {
-
+		StworzPojazd(formularz);
 	}
 
 	public List<Pojazd> GetAllPojazd() {
-		// TODO - implement FasadaZwracaniaPojazdu.GetAllPojazd
-		throw new UnsupportedOperationException();
+		return pojazdy;
 	}
 
-	/**
-	 * 
-	 * @param formularz
-	 */
-	private Pojazd StworzPojazd(Formularz formularz) {
-		// TODO - implement FasadaZwracaniaPojazdu.StworzPojazd
-		throw new UnsupportedOperationException();
+	private void StworzPojazd(Formularz formularz) {
+		Pojazd pojazd = new Pojazd();
+		PojazdDAO pojazdDAO = new PojazdDAO();
+
+		if (formularz instanceof FormularzDodawania) {
+			FormularzDodawania dodawanie = (FormularzDodawania) formularz;
+			pojazd.setRodzaj(dodawanie.getRodzaj());
+			pojazd.setTyp(dodawanie.getTyp());
+			pojazd.setSilnik(dodawanie.getSilnik());
+
+			pojazdDAO.Wstaw(pojazd);
+		} else if (formularz instanceof FormularzAktualizowania) {
+			FormularzAktualizowania aktualizowanie = (FormularzAktualizowania) formularz;
+			pojazd.setRodzaj(aktualizowanie.getRodzaj());
+			pojazd.setTyp(aktualizowanie.getTyp());
+			pojazd.setSilnik(aktualizowanie.getSilnik());
+
+			pojazdDAO.Zaktualizuj(pojazd);
+		}
 	}
 
 }

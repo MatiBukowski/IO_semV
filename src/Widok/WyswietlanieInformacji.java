@@ -1,15 +1,13 @@
 package Widok;
 
 import Model.*;
+import Prezenter.Formularz;
+
+import java.util.List;
 
 public interface WyswietlanieInformacji {
 
-	/**
-	 * 
-	 * @param idPanelu
-	 * @param pojazdy
-	 */
-	void WyswietlOferty(int idPanelu, List<Pojazd> pojazdy);
+	void WyswietlOferty(Panel panel, List<Pojazd> pojazdy);
 
 	/**
 	 * 

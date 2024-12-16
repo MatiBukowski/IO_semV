@@ -4,9 +4,16 @@ public class Powiadomienie {
 
 	private KontekstPowiadomienia kontekstPowiadomienia;
 
-	public void Powiadom() {
-		// TODO - implement Powiadomienie.Powiadom
-		throw new UnsupportedOperationException();
+	public void PowiadomSYS() {
+		KontekstPowiadomienia kontekstPowiadomienia = new KontekstPowiadomienia();
+
+		kontekstPowiadomienia.KontekstPowiadomieniaSYS();
+	}
+
+	public void PowiadomSMS() {
+		KontekstPowiadomienia kontekstPowiadomienia = new KontekstPowiadomienia();
+
+		kontekstPowiadomienia.KontekstPowiadomieniaSMS();
 	}
 
 	public Powiadomienie() {

@@ -1,6 +1,8 @@
 package Model;
 
-public class PojazdDAO implements DAO {
+import java.util.List;
+
+public class PojazdDAO implements DAO<Pojazd> {
 
 	public List<Pojazd> WypiszWszystkie() {
 		// TODO - implement PojazdDAO.WypiszWszystkie

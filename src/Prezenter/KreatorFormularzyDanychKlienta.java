@@ -3,8 +3,9 @@ package Prezenter;
 public class KreatorFormularzyDanychKlienta extends KreatorFormularzy {
 
 	public Formularz StworzFormularz() {
-		// TODO - implement KreatorFormularzyDanychKlienta.StworzFormularz
-		throw new UnsupportedOperationException();
+		Formularz formularzDanychKlienta = new FormularzDanychKlienta();
+
+		return formularzDanychKlienta;
 	}
 
 	public KreatorFormularzyDanychKlienta() {

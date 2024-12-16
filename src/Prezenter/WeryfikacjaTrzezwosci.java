@@ -6,8 +6,13 @@ public class WeryfikacjaTrzezwosci extends PodstawowaObsluga {
 	private Powiadomienie powiadomienieOTrzezwosci;
 
 	public void AnalizaPomiaru() {
-		// TODO - implement WeryfikacjaTrzezwosci.AnalizaPomiaru
-		throw new UnsupportedOperationException();
+		decyzja = ZwrocDecyzje();
+
+		if(!decyzja) {
+			Powiadomienie powiadomienieOTrzezwosci = new Powiadomienie();
+			powiadomienieOTrzezwosci.PowiadomSMS();
+			Zakoncz();
+		}
 	}
 
 	public boolean ZwrocDecyzje() {
@@ -33,14 +38,12 @@ public class WeryfikacjaTrzezwosci extends PodstawowaObsluga {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean ZweryfikujTrzezwosc() {
-		// TODO - implement WeryfikacjaTrzezwosci.ZweryfikujTrzezwosc
-		throw new UnsupportedOperationException();
+	public void ZweryfikujTrzezwosc() {
+		AnalizaPomiaru();
 	}
 
 	public void Zakoncz() {
-		// TODO - implement WeryfikacjaTrzezwosci.Zakoncz
-		throw new UnsupportedOperationException();
+		System.exit(0);
 	}
 
 }

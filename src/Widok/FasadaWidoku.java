@@ -3,21 +3,21 @@ package Widok;
 import Model.*;
 import Prezenter.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FasadaWidoku implements WyswietlanieInformacji {
 
-	private Panel[] panele;
+	private List<Panel> panele = new ArrayList<>();
 
 	public Panel StworzPanelOfert() {
-		// TODO - implement FasadaWidoku.StworzPanelOfert
-		throw new UnsupportedOperationException();
+		Panel panel = new Panel();
+		panele.add(panel);
+
+		return panel;
 	}
 
-	/**
-	 * 
-	 * @param idPanelu
-	 * @param pojazdy
-	 */
-	public void WyswietlOferty(int idPanelu, List<Pojazd> pojazdy) {
+	public void WyswietlOferty(Panel panel, List<Pojazd> pojazdy) {
 
 	}
 

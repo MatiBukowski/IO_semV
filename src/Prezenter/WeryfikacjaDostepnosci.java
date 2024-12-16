@@ -8,6 +8,8 @@ public class WeryfikacjaDostepnosci extends PodstawowaObsluga {
 	private int IDsprzetu;
 	private Powiadomienie powiadomienieODostepnosci;
 
+	public WeryfikacjaDostepnosci() {};
+
 	public void SprawdzID() {
 		// TODO - implement WeryfikacjaDostepnosci.SprawdzID
 		throw new UnsupportedOperationException();
@@ -41,13 +43,19 @@ public class WeryfikacjaDostepnosci extends PodstawowaObsluga {
 	 * @param pojazd
 	 */
 	public boolean ZweryfikujDostepnosc(Pojazd pojazd) {
-		// TODO - implement WeryfikacjaDostepnosci.ZweryfikujDostepnosc
-		throw new UnsupportedOperationException();
+		decyzja = ZwrocDecyzje();
+
+		if(!decyzja) {
+			Powiadomienie powiadomienieODostepnosci = new Powiadomienie();
+			powiadomienieODostepnosci.PowiadomSYS();
+			Zakoncz();
+		}
+
+		return decyzja;
 	}
 
 	public void Zakoncz() {
-		// TODO - implement WeryfikacjaDostepnosci.Zakoncz
-		throw new UnsupportedOperationException();
+		System.exit(0);
 	}
 
 }
