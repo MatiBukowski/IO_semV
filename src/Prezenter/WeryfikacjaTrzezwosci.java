@@ -4,28 +4,37 @@ import Model.Pojazd;
 
 public class WeryfikacjaTrzezwosci extends PodstawowaObsluga {
 
-	private boolean decyzjaTrz;
+	private boolean decyzja;
 	private boolean kierowcaTrzezwy;
 	private Powiadomienie powiadomienieOTrzezwosci;
 
-	public void AnalizaPomiaru() {
+	public boolean AnalizaPomiaru() {
+		System.out.println("Dane z alkomatu zamontowanego w samochodzie");
 
+		return true;
 	}
 
 	@Override
 	public boolean Obsluz(Pojazd pojazd) {
+		ZweryfikujTrzezwosc();
+
 		if(kierowcaTrzezwy) {
 			System.out.println("Kierowca jest trzeźwy");
-			decyzjaTrz = true;
+			OdblokujSprzet();
+			decyzja = true;
 		} else {
 			System.out.println("Kierowca jest nietrzeźwy, wysyłanie powiadomienia");
-			decyzjaTrz = false;
+			decyzja = false;
 		}
-		return decyzjaTrz;
+		return decyzja;
 	}
 
 	public void ZweryfikujTrzezwosc() {
-		AnalizaPomiaru();
+		kierowcaTrzezwy = AnalizaPomiaru();
+	}
+
+	public void OdblokujSprzet() {
+		System.out.println("Odblokowanie sprzętu");
 	}
 
 }

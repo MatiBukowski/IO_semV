@@ -7,27 +7,28 @@ public class Panel {
 
 	private int idPanelu;
 
+	public Panel(int idPanelu) {
+		this.idPanelu = idPanelu;
+	}
+
+	public int getIdPanelu() {
+		return idPanelu;
+	}
+
 	public void WyswietlOferty() {
-		// TODO - implement Panel.WyswietlOferty
-		throw new UnsupportedOperationException();
+		System.out.println("Wyświetlanie panelu ofert");
 	}
 
 	public void WyswietlPowiadomienie() {
-		// TODO - implement Panel.WyswietlPowiadomienie
-		throw new UnsupportedOperationException();
+		System.out.println("Wyświetlanie powiadomienia");
 	}
 
-	/**
-	 * 
-	 * @param formularz
-	 */
 	public void WyswietlFormularz(Formularz formularz) {
-		// TODO - implement Panel.WyswietlFormularz
-		throw new UnsupportedOperationException();
+		System.out.println("Wyświetlanie formularza");
 	}
 
 	/**
-	 * 
+	 *
 	 * @param formularz
 	 */
 	private Formularz WypelnijFormularz(Formularz formularz) {

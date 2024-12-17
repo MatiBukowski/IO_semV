@@ -9,8 +9,7 @@ public class KreatorFormularzyDanychKlienta extends KreatorFormularzy {
 	}
 
 	public KreatorFormularzyDanychKlienta() {
-		// TODO - implement KreatorFormularzyDanychKlienta.KreatorFormularzyDanychKlienta
-		throw new UnsupportedOperationException();
+
 	}
 
 }

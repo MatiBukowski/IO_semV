@@ -1,25 +1,23 @@
 package Prezenter;
 
 import Model.*;
-import Widok.ZarzadzanieOferta;
+import Widok.*;
 
 import java.util.List;
 
 public class FasadaPrezentera implements ZarzadzanieOferta {
-
+	private FasadaWidoku fasadaWidoku;
 	private PodstawowaObsluga podstawowaObsluga;
 	private Formularz formularz;
 	private List<Pojazd> pojazdy;
-	private int idPanelu;
+	private Panel panel;
 
-	/**
-	 * 
-	 * @param idPanelu
-	 * @param formularz
-	 */
-	public void WyswietlFormularz(int idPanelu, Formularz formularz) {
-		// TODO - implement FasadaPrezentera.WyswietlFormularz
-		throw new UnsupportedOperationException();
+	public FasadaPrezentera(FasadaWidoku fasadaWidoku) {
+		this.fasadaWidoku = fasadaWidoku;
+	}
+
+	public void WyswietlFormularz(Formularz formularz) {
+		fasadaWidoku.WyswietlFormularz(formularz);
 	}
 
 	/**
@@ -53,22 +51,16 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 		fasadaZwracaniaPojazdu.AktualizujPojazd(formularz);
 	}
 
-	/**
-	 * 
-	 * @param idPanelu
-	 */
-	public void WyswietlOferty(int idPanelu) {
+	public void WyswietlOferty(Panel panel, List<Pojazd> pojazdy) {
+		fasadaWidoku.WyswietlOferty(panel, pojazdy);
+
 		KreatorFormularzy kreatorFormularzy = new KreatorFormularzyDodawania();
 		formularz = kreatorFormularzy.StworzFormularz();
 	}
 
-	/**
-	 * 
-	 * @param idPanelu
-	 */
-	public void WyswietlPowiadomienie(int idPanelu) {
+	public void WyswietlPowiadomienie(Panel panel) {
 		// TODO - implement FasadaPrezentera.WyswietlPowiadomienie
-		throw new UnsupportedOperationException();
+		fasadaWidoku.WyswietlPowiadomienie(panel);
 	}
 
 	private List<Pojazd> GetAllPojazd() {
@@ -94,12 +86,6 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 		if(decyzja) {
 			System.out.println("Rezerwacja zakończona niepowodzeniem");
 		}
-	}
-
-
-	public static void main(String[] args) {
-		// TODO - implement FasadaPrezentera.main
-		throw new UnsupportedOperationException();
 	}
 
 }

@@ -8,35 +8,23 @@ import java.util.List;
 
 public class FasadaWidoku implements WyswietlanieInformacji {
 
-	private List<Panel> panele = new ArrayList<>();
+//	private List<Panel> panele = new ArrayList<>();
+	private Panel[] panele;
 
-	public Panel StworzPanelOfert() {
-		Panel panel = new Panel();
-		panele.add(panel);
-
-		return panel;
+	public FasadaWidoku(Panel[] panele) {
+		this.panele = panele;
 	}
 
 	public void WyswietlOferty(Panel panel, List<Pojazd> pojazdy) {
-
+		panele[0].WyswietlOferty();
 	}
 
-	/**
-	 * 
-	 * @param idPanelu
-	 */
-	public void WyswietlPowiadomienie(int idPanelu) {
-		// TODO - implement FasadaWidoku.WyswietlPowiadomienie
-		throw new UnsupportedOperationException();
+	public void WyswietlPowiadomienie(Panel panel) {
+		panele[1].WyswietlPowiadomienie();
 	}
 
-	/**
-	 * 
-	 * @param idPanelu
-	 * @param formularz
-	 */
-	public void WyswietlFormularz(int idPanelu, Formularz formularz) {
-
+	public void WyswietlFormularz(Formularz formularz) {
+		panele[2].WyswietlFormularz(formularz);
 	}
 
 }

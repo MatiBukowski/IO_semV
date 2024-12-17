@@ -4,36 +4,26 @@ import Model.*;
 
 public class WeryfikacjaDostepnosci extends PodstawowaObsluga {
 
-	private boolean decyzjaDos;
+	private boolean decyzja;
+	private boolean dostepny;
 	private Powiadomienie powiadomienieODostepnosci;
 
 	public WeryfikacjaDostepnosci() {};
 
 	@Override
 	public boolean Obsluz(Pojazd pojazd) {
-		if(pojazd.getStatus_dostepnosci()) {
+		dostepny = pojazd.getStatus_dostepnosci();
+
+		if(dostepny) {
 			System.out.println("Sprzęt dostępny");
 			if(nastepnik != null) {
 				return nastepnik.Obsluz(pojazd);
 			}
-			decyzjaDos = true;
+			decyzja = true;
 		} else {
 			System.out.println("Sprzęt niedostępny, wysyłanie powiadomienia");
-			decyzjaDos = false;
+			decyzja = false;
 		}
-		return decyzjaDos;
-	}
-
-	public boolean ZweryfikujDostepnosc(Pojazd pojazd) {
-		decyzja = ZwrocDecyzje();
-
-		if(!decyzja) {
-			Powiadomienie powiadomienieODostepnosci = new Powiadomienie();
-			powiadomienieODostepnosci.PowiadomSYS();
-			Zakoncz();
-		}
-
 		return decyzja;
 	}
-
 }

@@ -9,17 +9,8 @@ public interface WyswietlanieInformacji {
 
 	void WyswietlOferty(Panel panel, List<Pojazd> pojazdy);
 
-	/**
-	 * 
-	 * @param idPanelu
-	 */
-	void WyswietlPowiadomienie(int idPanelu);
+	void WyswietlPowiadomienie(Panel panel);
 
-	/**
-	 * 
-	 * @param idPanelu
-	 * @param formularz
-	 */
-	void WyswietlFormularz(int idPanelu, Formularz formularz);
+	void WyswietlFormularz(Formularz formularz);
 
 }
