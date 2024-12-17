@@ -4,44 +4,26 @@ import Model.*;
 
 public class WeryfikacjaDostepnosci extends PodstawowaObsluga {
 
-	private boolean decyzja;
-	private int IDsprzetu;
+	private boolean decyzjaDos;
 	private Powiadomienie powiadomienieODostepnosci;
 
 	public WeryfikacjaDostepnosci() {};
 
-	public void SprawdzID() {
-		// TODO - implement WeryfikacjaDostepnosci.SprawdzID
-		throw new UnsupportedOperationException();
+	@Override
+	public boolean Obsluz(Pojazd pojazd) {
+		if(pojazd.getStatus_dostepnosci()) {
+			System.out.println("Sprzęt dostępny");
+			if(nastepnik != null) {
+				return nastepnik.Obsluz(pojazd);
+			}
+			decyzjaDos = true;
+		} else {
+			System.out.println("Sprzęt niedostępny, wysyłanie powiadomienia");
+			decyzjaDos = false;
+		}
+		return decyzjaDos;
 	}
 
-	public boolean ZwrocDecyzje() {
-		// TODO - implement WeryfikacjaDostepnosci.ZwrocDecyzje
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param zadanie
-	 */
-	public void Obsluz(int zadanie) {
-		// TODO - implement WeryfikacjaDostepnosci.Obsluz
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param nastepnik
-	 */
-	public void SetNastepnik(PodstawowaObsluga nastepnik) {
-		// TODO - implement WeryfikacjaDostepnosci.SetNastepnik
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param pojazd
-	 */
 	public boolean ZweryfikujDostepnosc(Pojazd pojazd) {
 		decyzja = ZwrocDecyzje();
 
@@ -52,10 +34,6 @@ public class WeryfikacjaDostepnosci extends PodstawowaObsluga {
 		}
 
 		return decyzja;
-	}
-
-	public void Zakoncz() {
-		System.exit(0);
 	}
 
 }

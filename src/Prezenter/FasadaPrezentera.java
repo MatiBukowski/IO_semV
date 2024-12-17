@@ -7,8 +7,8 @@ import java.util.List;
 
 public class FasadaPrezentera implements ZarzadzanieOferta {
 
-	private Formularz formularz;
 	private PodstawowaObsluga podstawowaObsluga;
+	private Formularz formularz;
 	private List<Pojazd> pojazdy;
 	private int idPanelu;
 
@@ -82,32 +82,18 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 	}
 
 	public void ZarezerwujOferte(Pojazd pojazd) {
-		PodstawowaObsluga weryfikacjaDostepnosci = new WeryfikacjaDostepnosci();
+		WeryfikacjaDostepnosci weryfikacjaDostepnosci = new WeryfikacjaDostepnosci();
+		WeryfikacjaDokumentow weryfikacjaDokumentow = new WeryfikacjaDokumentow();
+		WeryfikacjaTrzezwosci weryfikacjaTrzezwosci = new WeryfikacjaTrzezwosci();
 
-		podstawowaObsluga.SetNastepnik(weryfikacjaDostepnosci);
-		weryfikacjaDostepnosci.Obsluz(1);
-		boolean decyzja = weryfikacjaDostepnosci.ZweryfikujDostepnosc(pojazd);
+		weryfikacjaDostepnosci.SetNastepnik(weryfikacjaDokumentow);
+		weryfikacjaDokumentow.SetNastepnik(weryfikacjaTrzezwosci);
+
+		boolean decyzja = weryfikacjaDostepnosci.Obsluz(pojazd);
 
 		if(decyzja) {
-			WeryfikacjaDokumentow weryfikacjaDokumentow = new WeryfikacjaDokumentow();
-			podstawowaObsluga.SetNastepnik(weryfikacjaDokumentow);
-			weryfikacjaDokumentow.Obsluz(1);
-			boolean decyzja2 = weryfikacjaDokumentow.getDecyzja();
-
-			KreatorFormularzy kreatorFormularzy = new KreatorFormularzyDanychKlienta();
-			kreatorFormularzy.StworzFormularz();
-
-			if(decyzja2) {
-				PodstawowaObsluga weryfikacjaTrzezwosci = new WeryfikacjaTrzezwosci();
-				podstawowaObsluga.SetNastepnik(weryfikacjaTrzezwosci);
-				weryfikacjaTrzezwosci.Obsluz(1);
-				weryfikacjaTrzezwosci.ZweryfikujTrzezwosc();
-			}
+			System.out.println("Rezerwacja zakończona niepowodzeniem");
 		}
-
-
-		weryfikacjaDostepnosci.SetNastepnik(weryfikacjaDostepnosci);
-		weryfikacjaDostepnosci.Obsluz(1);
 	}
 
 
