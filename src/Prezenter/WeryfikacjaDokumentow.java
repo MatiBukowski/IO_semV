@@ -34,8 +34,9 @@ public class WeryfikacjaDokumentow extends PodstawowaObsluga implements IWeryfik
 
 	public void ZweryfikujDokumenty() {
 		KreatorFormularzy kreatorFormularzyDanychKlienta = new KreatorFormularzyDanychKlienta();
-		kreatorFormularzyDanychKlienta.StworzFormularz();
+		Formularz formularz = kreatorFormularzyDanychKlienta.StworzFormularz();
 
+		WyswietlFormularz(formularz);
 	}
 
 	public void WyswietlFormularz(Formularz formularz) {

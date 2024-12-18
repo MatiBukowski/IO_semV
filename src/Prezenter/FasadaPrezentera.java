@@ -80,6 +80,7 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 
 		weryfikacjaDostepnosci.SetNastepnik(weryfikacjaDokumentow);
 		weryfikacjaDokumentow.SetNastepnik(weryfikacjaTrzezwosci);
+		weryfikacjaDokumentow.SetFasadaWidoku(fasadaWidoku);
 
 		boolean decyzja = weryfikacjaDostepnosci.Obsluz(pojazd);
 
