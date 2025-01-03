@@ -36,5 +36,8 @@ public class WeryfikacjaTrzezwosci extends PodstawowaObsluga {
 	public void OdblokujSprzet() {
 		System.out.println("Odblokowanie sprzętu");
 	}
+	public void ZablokujSprzet() {
+		System.out.println("Zablokowanie sprzętu");
+	}
 
 }

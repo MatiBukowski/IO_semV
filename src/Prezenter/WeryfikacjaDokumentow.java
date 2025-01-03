@@ -12,11 +12,13 @@ public class WeryfikacjaDokumentow extends PodstawowaObsluga implements IWeryfik
 
 	@Override
 	public boolean Obsluz(Pojazd pojazd) {
+
 		ZweryfikujDokumenty();
 
 		if (dokumentyPoprawne) {
 			System.out.println("Dokumenty poprawne");
 			if (nastepnik != null) {
+				nastepnik.SetNastepnik(null);
 				return nastepnik.Obsluz(pojazd);
 			}
 			decyzja = true;
@@ -49,6 +51,10 @@ public class WeryfikacjaDokumentow extends PodstawowaObsluga implements IWeryfik
 		System.out.println("Wysyłanie dokumentów na strony rządowe w celu sprawdzenia ich poprawności");
 
 		return true;
+	}
+
+	public void ZamknijSprzet() {
+		System.out.println("Zamknięcie sprzętu");
 	}
 
 	public void SetFasadaWidoku(FasadaWidoku fasada) {

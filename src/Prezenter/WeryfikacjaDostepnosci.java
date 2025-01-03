@@ -1,6 +1,7 @@
 package Prezenter;
 
 import Model.*;
+import Widok.FasadaWidoku;
 
 public class WeryfikacjaDostepnosci extends PodstawowaObsluga {
 
@@ -12,11 +13,14 @@ public class WeryfikacjaDostepnosci extends PodstawowaObsluga {
 
 	@Override
 	public boolean Obsluz(Pojazd pojazd) {
+		WeryfikacjaTrzezwosci weryfikacjaTrzezwosci = new WeryfikacjaTrzezwosci();
+
 		dostepny = pojazd.getStatus_dostepnosci();
 
 		if(dostepny) {
 			System.out.println("Sprzęt dostępny");
 			if(nastepnik != null) {
+				nastepnik.SetNastepnik(weryfikacjaTrzezwosci);
 				return nastepnik.Obsluz(pojazd);
 			}
 			decyzja = true;

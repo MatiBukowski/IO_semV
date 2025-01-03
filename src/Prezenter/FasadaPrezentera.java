@@ -76,11 +76,11 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 	public void ZarezerwujOferte(Pojazd pojazd) {
 		WeryfikacjaDostepnosci weryfikacjaDostepnosci = new WeryfikacjaDostepnosci();
 		WeryfikacjaDokumentow weryfikacjaDokumentow = new WeryfikacjaDokumentow();
-		WeryfikacjaTrzezwosci weryfikacjaTrzezwosci = new WeryfikacjaTrzezwosci();
+		weryfikacjaDokumentow.SetFasadaWidoku(fasadaWidoku);
+//		WeryfikacjaTrzezwosci weryfikacjaTrzezwosci = new WeryfikacjaTrzezwosci();
 
 		weryfikacjaDostepnosci.SetNastepnik(weryfikacjaDokumentow);
-		weryfikacjaDokumentow.SetNastepnik(weryfikacjaTrzezwosci);
-		weryfikacjaDokumentow.SetFasadaWidoku(fasadaWidoku);
+//		weryfikacjaDokumentow.SetNastepnik(weryfikacjaTrzezwosci);
 
 		boolean decyzja = weryfikacjaDostepnosci.Obsluz(pojazd);
 
