@@ -4,7 +4,7 @@ import Model.*;
 
 public abstract class PodstawowaObsluga {
 	protected PodstawowaObsluga nastepnik;
-
+	protected KontekstPowiadomienia kontekstPowiadomienia;
 
 	public abstract boolean Obsluz(Pojazd pojazd);
 

@@ -2,14 +2,17 @@ package Prezenter;
 
 public class KontekstPowiadomienia {
 
-	public void KontekstPowiadomieniaSYS() {
-		StrategiaTworzeniaPowiadomien strategia = new StrategiaPowiadamianaSystemowego();
-		strategia.StworzPowiadomienie();
+	private StrategiaTworzeniaPowiadomien strategiaTworzeniaPowiadomien;
+
+	public void SetStrategiaPowiadomienia(StrategiaTworzeniaPowiadomien konkretnaStrategia) {
+		this.strategiaTworzeniaPowiadomien = konkretnaStrategia;
 	}
 
-	public void KontekstPowiadomieniaSMS() {
-		StrategiaTworzeniaPowiadomien strategia = new StrategiaPowiadamianiaSMS();
-		strategia.StworzPowiadomienie();
+	public void  StworzPowiadomienie(String wiadomosc) {
+		if (strategiaTworzeniaPowiadomien != null) {
+			strategiaTworzeniaPowiadomien.WyslijPowiadomienie(wiadomosc);
+		} else {
+			System.out.println("Brak strategii powiadomienia");
+		}
 	}
-
 }

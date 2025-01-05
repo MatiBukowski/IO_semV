@@ -3,22 +3,34 @@ package Prezenter;
 public class Powiadomienie {
 
 	private KontekstPowiadomienia kontekstPowiadomienia;
+	private String wiadomosc;
 
-	public void PowiadomSYS() {
-		KontekstPowiadomienia kontekstPowiadomienia = new KontekstPowiadomienia();
-
-		kontekstPowiadomienia.KontekstPowiadomieniaSYS();
+	public Powiadomienie(KontekstPowiadomienia kontekstPowiadomienia) {
+		this.kontekstPowiadomienia = kontekstPowiadomienia;
 	}
 
-	public void PowiadomSMS() {
-		KontekstPowiadomienia kontekstPowiadomienia = new KontekstPowiadomienia();
+	public void PowiadomODostepnosci(boolean decyzja) {
+		if(decyzja)
+			wiadomosc = "Wybrany pojazd jest dostępny";
+		else wiadomosc = "Wybrany pojazd jest niedostępny";
 
-		kontekstPowiadomienia.KontekstPowiadomieniaSMS();
+		kontekstPowiadomienia.SetStrategiaPowiadomienia(new StrategiaPowiadamianaSystemowego());
+		kontekstPowiadomienia.StworzPowiadomienie(wiadomosc);
 	}
+	public void PowiadomOPoprawnosciDok(boolean decyzja) {
+		if(decyzja)
+			wiadomosc = "Weryfikacja dokumentów zakończona sukcesem";
+		else wiadomosc = "Weryfikacja dokumentów zakończona niepowodzeniem - niepoprawne dokumenty";
 
-	public Powiadomienie() {
-		// TODO - implement Powiadomienie.Powiadomienie
-		throw new UnsupportedOperationException();
+		kontekstPowiadomienia.SetStrategiaPowiadomienia(new StrategiaPowiadamianaSystemowego());
+		kontekstPowiadomienia.StworzPowiadomienie(wiadomosc);
 	}
+	public void PowiadomOTrzezwosci(boolean decyzja) {
+		if(decyzja)
+			wiadomosc = "Klient jest trzeźwy - sprzęt odblokowany";
+		else wiadomosc = "Klient jest nietrzeźwy - sprzęt zablokowany";
 
+		kontekstPowiadomienia.SetStrategiaPowiadomienia(new StrategiaPowiadamianiaSMS());
+		kontekstPowiadomienia.StworzPowiadomienie(wiadomosc);
+	}
 }

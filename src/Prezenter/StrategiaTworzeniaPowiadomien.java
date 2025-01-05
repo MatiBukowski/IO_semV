@@ -3,6 +3,6 @@ package Prezenter;
 public interface StrategiaTworzeniaPowiadomien {
 
 
-	void StworzPowiadomienie();
+	void WyslijPowiadomienie(String wiadomosc);
 
 }

@@ -16,16 +16,19 @@ public class WeryfikacjaTrzezwosci extends PodstawowaObsluga {
 
 	@Override
 	public boolean Obsluz(Pojazd pojazd) {
+		powiadomienieOTrzezwosci = new Powiadomienie(kontekstPowiadomienia);
 		ZweryfikujTrzezwosc();
+		powiadomienieOTrzezwosci.PowiadomOTrzezwosci(kierowcaTrzezwy);
 
 		if(kierowcaTrzezwy) {
 			System.out.println("Kierowca jest trzeźwy");
 			OdblokujSprzet();
 			decyzja = true;
 		} else {
-			System.out.println("Kierowca jest nietrzeźwy, wysyłanie powiadomienia");
+			System.out.println("Kierowca jest nietrzeźwy");
 			decyzja = false;
 		}
+
 		return decyzja;
 	}
 

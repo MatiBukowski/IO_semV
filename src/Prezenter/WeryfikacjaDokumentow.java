@@ -12,8 +12,9 @@ public class WeryfikacjaDokumentow extends PodstawowaObsluga implements IWeryfik
 
 	@Override
 	public boolean Obsluz(Pojazd pojazd) {
-
+		powiadomienieOWeryfikacji = new Powiadomienie(kontekstPowiadomienia);
 		ZweryfikujDokumenty();
+		powiadomienieOWeryfikacji.PowiadomOPoprawnosciDok(dokumentyPoprawne);
 
 		if (dokumentyPoprawne) {
 			System.out.println("Dokumenty poprawne");
@@ -23,9 +24,10 @@ public class WeryfikacjaDokumentow extends PodstawowaObsluga implements IWeryfik
 			}
 			decyzja = true;
 		} else {
-			System.out.println("Dokumenty niepoprawne, wysyłanie powiadomienia");
+			System.out.println("Dokumenty niepoprawne");
 			decyzja = false;
 		}
+
 		return decyzja;
 	}
 
