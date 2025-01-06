@@ -27,10 +27,6 @@ public class Panel {
 		System.out.println("Wyświetlanie formularza");
 	}
 
-	public Formularz pobierzFormularz() {
-		return null;
-	}
-
 	public void WyswietlOperacje(){System.out.println("Wyswietlanie operacji");}
 
 	/**

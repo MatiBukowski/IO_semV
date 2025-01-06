@@ -23,10 +23,6 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 		fasadaWidoku.WyswietlFormularz(formularz);
 	}
 
-	public Formularz PobierzFormularz(){
-		return panel.pobierzFormularz();
-	}
-
 	public void WyswietlOperacje(Panel panel){
 		fasadaWidoku.WyswietlOperacje(panel);
 	}
@@ -78,14 +74,12 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 			KreatorFormularzyDodawania kreator = new KreatorFormularzyDodawania();
 			formularz = kreator.StworzFormularz();
 			WyswietlFormularz(formularz);
-			formularz = PobierzFormularz();
 			DodajOferte(formularz);
 		}else if(operacja==1){
 			KreatorFormularzyAktualizowania kreator = new KreatorFormularzyAktualizowania();
 			Pojazd pojazd = WybierzOferte();
 			formularz = kreator.StworzFormularz(pojazd);
 			WyswietlFormularz(formularz);
-			formularz = PobierzFormularz();
 			AktualizujOferte(formularz);
 		}else if(operacja==2){
 			Pojazd pojazd = WybierzOferte();
