@@ -7,30 +7,30 @@ import java.util.List;
 
 public class FasadaPrezentera implements ZarzadzanieOferta {
 	private FasadaWidoku fasadaWidoku;
+	private FasadaZwracaniaPojazdu fasadaZwracaniaPojazdu;
 	private PodstawowaObsluga podstawowaObsluga;
 	private Formularz formularz;
 	private List<Pojazd> pojazdy;
 	private Panel panel;
+	private int operacja;
 
-	public FasadaPrezentera(FasadaWidoku fasadaWidoku) {
+	public FasadaPrezentera(FasadaWidoku fasadaWidoku, FasadaZwracaniaPojazdu fasadaZwracaniaPojazdu) {
 		this.fasadaWidoku = fasadaWidoku;
+		this.fasadaZwracaniaPojazdu = fasadaZwracaniaPojazdu;
 	}
 
 	public void WyswietlFormularz(Formularz formularz) {
 		fasadaWidoku.WyswietlFormularz(formularz);
 	}
 
+	public void WyswietlOperacje(Panel panel){fasadaWidoku.WyswietlOperacje(panel);}
+
 	/**
 	 * 
 	 * @param formularz
 	 */
 	public void DodajOferte(Formularz formularz) {
-		FasadaZwracaniaPojazdu fasadaZwracaniaPojazdu = new FasadaZwracaniaPojazdu();
 		fasadaZwracaniaPojazdu.DodajPojazd(formularz);
-
-
-		KreatorFormularzy kreatorFormularzy = new KreatorFormularzyDodawania();
-		this.formularz = kreatorFormularzy.StworzFormularz();
 	}
 
 	/**
@@ -38,7 +38,6 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 	 * @param id_sprzetu
 	 */
 	public void UsunOferte(int id_sprzetu) {
-		FasadaZwracaniaPojazdu fasadaZwracaniaPojazdu = new FasadaZwracaniaPojazdu();
 		fasadaZwracaniaPojazdu.UsunPojazd(id_sprzetu);
 	}
 
@@ -47,15 +46,11 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 	 * @param formularz
 	 */
 	public void AktualizujOferte(Formularz formularz) {
-		FasadaZwracaniaPojazdu fasadaZwracaniaPojazdu = new FasadaZwracaniaPojazdu();
 		fasadaZwracaniaPojazdu.AktualizujPojazd(formularz);
 	}
 
 	public void WyswietlOferty(Panel panel, List<Pojazd> pojazdy) {
 		fasadaWidoku.WyswietlOferty(panel, pojazdy);
-
-		KreatorFormularzy kreatorFormularzy = new KreatorFormularzyDodawania();
-		formularz = kreatorFormularzy.StworzFormularz();
 	}
 
 	public void WyswietlPowiadomienie(Panel panel) {
@@ -67,10 +62,26 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 		return pojazdy;
 	}
 
+	public Pojazd WybierzOferte() {
+		return null;
+	}
 
-	public void WybierzOferte(Pojazd pojazd) {
-		KreatorFormularzy kreatorFormularzy = new KreatorFormularzyAktualizowania();
-		formularz = kreatorFormularzy.StworzFormularz(pojazd);
+	@Override
+	public void WybierzOperacje(int operacja) {
+		if(operacja==0){
+			KreatorFormularzyDodawania kreator = new KreatorFormularzyDodawania();
+			formularz = kreator.StworzFormularz();
+			WyswietlFormularz(formularz);
+			DodajOferte(formularz);
+		}else if(operacja==1){
+			KreatorFormularzyAktualizowania kreator = new KreatorFormularzyAktualizowania();
+			Pojazd pojazd = WybierzOferte();
+			formularz = kreator.StworzFormularz(pojazd);
+			AktualizujOferte(formularz);
+		}else if(operacja==2){
+			Pojazd pojazd = WybierzOferte();
+			UsunOferte(pojazd.getId_sprzetu());
+		}
 	}
 
 	public void ZarezerwujOferte(Pojazd pojazd) {
@@ -87,6 +98,11 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 		if(decyzja) {
 			System.out.println("Rezerwacja zakończona niepowodzeniem");
 		}
+	}
+
+	public void ZarzadzajOferta() {
+			WyswietlOferty(panel, pojazdy);
+			WyswietlOperacje(panel);
 	}
 
 }

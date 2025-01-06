@@ -7,6 +7,12 @@ import java.util.List;
 public class FasadaZwracaniaPojazdu implements ZwroceniePojazdu {
 
 	private List<Pojazd> pojazdy;
+	private PojazdDAO pojazdDAO;
+
+	public FasadaZwracaniaPojazdu() {
+		this.pojazdDAO = new PojazdDAO();
+		this.pojazdy = pojazdDAO.WypiszWszystkie();
+	}
 
 	public Pojazd GetPojazd(int id_sprzetu) {
 		// TODO - implement FasadaZwracaniaPojazdu.GetPojazd
@@ -14,27 +20,34 @@ public class FasadaZwracaniaPojazdu implements ZwroceniePojazdu {
 	}
 
 	public void UsunPojazd(int id_sprzetu) {
-		PojazdDAO pojazdDAO = new PojazdDAO();
 		Pojazd pojazd = pojazdDAO.ZnajdzPojazd(id_sprzetu);
-
-		pojazdDAO.Usun(pojazd);
+		if(pojazd!=null){
+			pojazdDAO.Usun(pojazd);
+		}
 	}
 
 	public void DodajPojazd(Formularz formularz) {
-		StworzPojazd(formularz);
+		Pojazd pojazd = StworzPojazd(formularz);
+		Pojazd pojazd2 = pojazdDAO.ZnajdzPojazd(pojazd.getId_sprzetu());
+		if(pojazd2==null){
+			pojazdDAO.Wstaw(pojazd);
+		}
 	}
 
 	public void AktualizujPojazd(Formularz formularz) {
-		StworzPojazd(formularz);
+		Pojazd pojazd = StworzPojazd(formularz);
+		Pojazd pojazd2 = pojazdDAO.ZnajdzPojazd(pojazd.getId_sprzetu());
+		if(pojazd2!=null){
+			pojazdDAO.Zaktualizuj(pojazd);
+		}
 	}
 
 	public List<Pojazd> GetAllPojazd() {
 		return pojazdy;
 	}
 
-	private void StworzPojazd(Formularz formularz) {
+	private Pojazd StworzPojazd(Formularz formularz) {
 		Pojazd pojazd = new Pojazd();
-		PojazdDAO pojazdDAO = new PojazdDAO();
 
 		if (formularz instanceof FormularzDodawania) {
 			FormularzDodawania dodawanie = (FormularzDodawania) formularz;
@@ -42,15 +55,17 @@ public class FasadaZwracaniaPojazdu implements ZwroceniePojazdu {
 			pojazd.setTyp(dodawanie.getTyp());
 			pojazd.setSilnik(dodawanie.getSilnik());
 
-			pojazdDAO.Wstaw(pojazd);
+			return pojazd;
 		} else if (formularz instanceof FormularzAktualizowania) {
 			FormularzAktualizowania aktualizowanie = (FormularzAktualizowania) formularz;
 			pojazd.setRodzaj(aktualizowanie.getRodzaj());
 			pojazd.setTyp(aktualizowanie.getTyp());
 			pojazd.setSilnik(aktualizowanie.getSilnik());
 
-			pojazdDAO.Zaktualizuj(pojazd);
+			return pojazd;
 		}
+
+		return null;
 	}
 
 }

@@ -27,6 +27,8 @@ public class Panel {
 		System.out.println("Wyświetlanie formularza");
 	}
 
+	public void WyswietlOperacje(){System.out.println("Wyswietlanie operacji");}
+
 	/**
 	 *
 	 * @param formularz

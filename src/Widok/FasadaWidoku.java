@@ -27,4 +27,8 @@ public class FasadaWidoku implements WyswietlanieInformacji {
 		panele[2].WyswietlFormularz(formularz);
 	}
 
+	public void WyswietlOperacje(Panel panel) {
+		panele[3].WyswietlOperacje();
+	}
+
 }

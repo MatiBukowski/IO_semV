@@ -4,6 +4,8 @@ import java.util.List;
 
 public class PojazdDAO implements DAO<Pojazd> {
 
+	public PojazdDAO() {}
+
 	public List<Pojazd> WypiszWszystkie() {
 		// TODO - implement PojazdDAO.WypiszWszystkie
 		throw new UnsupportedOperationException();

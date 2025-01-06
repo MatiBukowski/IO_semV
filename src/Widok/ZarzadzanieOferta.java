@@ -24,9 +24,14 @@ public interface ZarzadzanieOferta {
 	void AktualizujOferte(Formularz formularz);
 
 	/**
-	 * 
-	 * @param pojazd
+	 *
 	 */
-	void WybierzOferte(Pojazd pojazd);
+	Pojazd WybierzOferte();
+
+	/**
+	 *
+	 * @param operacja
+	 */
+	void WybierzOperacje(int operacja);
 
 }

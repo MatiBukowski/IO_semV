@@ -13,4 +13,6 @@ public interface WyswietlanieInformacji {
 
 	void WyswietlFormularz(Formularz formularz);
 
+	void WyswietlOperacje(Panel panel);
+
 }
