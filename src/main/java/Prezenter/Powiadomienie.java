@@ -3,6 +3,11 @@ package Prezenter;
 public class Powiadomienie {
 
 	private KontekstPowiadomienia kontekstPowiadomienia;
+
+	public String getWiadomosc() {
+		return wiadomosc;
+	}
+
 	private String wiadomosc;
 
 	public Powiadomienie(KontekstPowiadomienia kontekstPowiadomienia) {
