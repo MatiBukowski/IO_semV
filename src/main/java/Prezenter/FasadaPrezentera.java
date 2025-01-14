@@ -98,7 +98,7 @@ public class FasadaPrezentera implements ZarzadzanieOferta {
 
 		boolean decyzja = weryfikacjaDostepnosci.Obsluz(pojazd);
 
-		if(decyzja) {
+		if(!decyzja) {
 			System.out.println("Rezerwacja zakończona niepowodzeniem");
 		}
 	}
