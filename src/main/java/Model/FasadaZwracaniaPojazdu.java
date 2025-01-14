@@ -58,7 +58,6 @@ public class FasadaZwracaniaPojazdu implements ZwroceniePojazdu {
 			return pojazd;
 		} else if (formularz instanceof FormularzAktualizowania) {
 			FormularzAktualizowania aktualizowanie = (FormularzAktualizowania) formularz;
-			pojazd.setRodzaj(aktualizowanie.getRodzaj());
 			pojazd.setTyp(aktualizowanie.getTyp());
 			pojazd.setSilnik(aktualizowanie.getSilnik());
 

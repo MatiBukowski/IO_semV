@@ -25,11 +25,11 @@ class KreatorFormularzyTest {
     void stworzFormularz() {
         FormularzAktualizowania formularzAktualizowania = new FormularzAktualizowania(pojazd);
 
-        assertSame(formularzAktualizowania.getTyp(), pojazd.getTyp(), "Niepoprany typ");
-        assertSame(formularzAktualizowania.getMarka(), pojazd.getMarka(), "Niepoprany typ");
-        assertSame(formularzAktualizowania.getTyp(), pojazd.getModel(), "Niepoprany typ");
-        assertSame(formularzAktualizowania.getSilnik(), pojazd.getSilnik(), "Niepoprany typ");
-        assertSame(formularzAktualizowania.getMoc(), pojazd.getMoc(), "Niepoprany typ");
-        assertSame(formularzAktualizowania.getTyp(), pojazd.getMoment_obrotowy(), "Niepoprany typ");
+        assertSame(formularzAktualizowania.getTyp(), pojazd.getTyp(), "Niepoprawny typ");
+        assertSame(formularzAktualizowania.getMarka(), pojazd.getMarka(), "Niepoprawna marka");
+        assertSame(formularzAktualizowania.getModel(), pojazd.getModel(), "Niepoprawny model");
+        assertSame(formularzAktualizowania.getSilnik(), pojazd.getSilnik(), "Niepoprawny silnik");
+        assertEquals(formularzAktualizowania.getMoc(), pojazd.getMoc(), "Niepoprawna moc");
+        assertEquals(formularzAktualizowania.getMoment_obrotowy(), pojazd.getMoment_obrotowy(), "Niepoprawny moment");
     }
 }
