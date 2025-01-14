@@ -8,6 +8,10 @@ public class FormularzAktualizowania extends Formularz {
 	private String typ;
 	private String rodzaj;
 	private String silnik;
+	private String marka;
+	private String model;
+	private int moc;
+	private int moment_obrotowy;
 
 	/**
 	 * 
@@ -22,6 +26,11 @@ public class FormularzAktualizowania extends Formularz {
 		id_sprzetu = pojazd.getId_sprzetu();
 		rodzaj = pojazd.getRodzaj();
 		silnik = pojazd.getSilnik();
+		moc = pojazd.getMoc();
+		moment_obrotowy = pojazd.getMoment_obrotowy();
+		model = pojazd.getModel();
+		marka = pojazd.getMarka();
+		typ = pojazd.getTyp();
 	}
 
 	public String getRodzaj() {
@@ -34,5 +43,18 @@ public class FormularzAktualizowania extends Formularz {
 
 	public String getSilnik() {
 		return silnik;
+	}
+
+	public String getMarka() {
+		return marka;
+	}
+	public String getModel() {
+		return model;
+	}
+	public int getMoc() {
+		return moc;
+	}
+	public int getMoment_obrotowy() {
+		return moment_obrotowy;
 	}
 }
