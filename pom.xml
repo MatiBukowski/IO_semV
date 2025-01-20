@@ -26,6 +26,12 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.vaadin.external.atmosphere</groupId>
+            <artifactId>atmosphere-runtime</artifactId>
+            <version>3.0.3.slf4jvaadin1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     
 </project>
