@@ -7,6 +7,13 @@ public class WeryfikacjaTrzezwosci extends PodstawowaObsluga {
 	private boolean decyzja;
 	private boolean kierowcaTrzezwy;
 	private Powiadomienie powiadomienieOTrzezwosci;
+	public WeryfikacjaTrzezwosci() {
+		powiadomienieOTrzezwosci = new Powiadomienie(kontekstPowiadomienia);
+	}
+
+	public WeryfikacjaTrzezwosci(Powiadomienie powiadomienie) {
+		this.powiadomienieOTrzezwosci = powiadomienie != null ? powiadomienie : new Powiadomienie(kontekstPowiadomienia);
+	}
 
 	public boolean AnalizaPomiaru() {
 		System.out.println("Dane z alkomatu zamontowanego w samochodzie");
@@ -16,7 +23,7 @@ public class WeryfikacjaTrzezwosci extends PodstawowaObsluga {
 
 	@Override
 	public boolean Obsluz(Pojazd pojazd) {
-		powiadomienieOTrzezwosci = new Powiadomienie(kontekstPowiadomienia);
+		//powiadomienieOTrzezwosci = new Powiadomienie(kontekstPowiadomienia);
 		ZweryfikujTrzezwosc();
 		powiadomienieOTrzezwosci.PowiadomOTrzezwosci(kierowcaTrzezwy);
 

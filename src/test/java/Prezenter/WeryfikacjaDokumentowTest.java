@@ -62,24 +62,4 @@ class WeryfikacjaDokumentowTest {
 
         assertTrue(wynik, "Dokumenty powinny być poprawne");
     }
-
-//    @Test
-//    public void testObsluzDokumentyNiepoprawne() {
-//        // Przygotowanie: tworzymy instancję WeryfikacjaDokumentow i wstrzykujemy zależności
-//        WeryfikacjaDokumentow weryfikacja = new WeryfikacjaDokumentow();
-//        weryfikacja.SetFasadaWidoku(fasadaWidokuMock);
-//
-//        // Mockowanie zachowań: zakładamy, że dokumenty są niepoprawne
-//        new Expectations() {{
-//            fasadaWidokuMock.WyswietlFormularz((Formularz) any); result = null;
-//            powiadomienieOWeryfikacjiMock.PowiadomOPoprawnosciDok(false); result = null;
-//        }};
-//
-//        // Działanie: wywołanie metody testowanej
-//        boolean wynik = weryfikacja.Obsluz(new Pojazd());
-//
-//        // Assercja: sprawdzenie, czy metoda zwróciła prawidłowy wynik, gdy dokumenty są niepoprawne
-//        assertFalse(wynik, "Dokumenty powinny być niepoprawne");
-//    }
-
 }

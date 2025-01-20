@@ -38,6 +38,17 @@
             <version>1.10.0</version> <!-- lub nowsza wersja -->
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jmockit</groupId>
+            <artifactId>jmockit</artifactId>
+            <version>1.49</version> <!-- lub najnowsza wersja -->
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
     </dependencies>
     
 </project>

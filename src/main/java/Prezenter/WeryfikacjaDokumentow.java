@@ -4,7 +4,6 @@ import Widok.*;
 import Model.*;
 
 public class WeryfikacjaDokumentow extends PodstawowaObsluga implements IWeryfikacjaDokumentow {
-
 	private FasadaWidoku fasadaWidoku;
 	private boolean decyzja;
 	private boolean dokumentyPoprawne;

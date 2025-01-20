@@ -25,7 +25,6 @@ class KreatorFormularzyTest implements TestExecutionExceptionHandler {
         pojazd.setSilnik("V12");
         pojazd.setMoc(700);
         pojazd.setMoment_obrotowy(800);
-
     }
 
     @Test
