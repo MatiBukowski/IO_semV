@@ -1,16 +1,23 @@
 package Prezenter;
 
 import Model.Pojazd;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
+
+import java.util.IllegalFormatCodePointException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class KreatorFormularzyTest {
+@Tag("Formularz")
+class KreatorFormularzyTest implements TestExecutionExceptionHandler {
 
-    Pojazd pojazd;
-    @BeforeEach
-    void setUp() {
+    static Pojazd pojazd;
+    @BeforeAll
+    static void setUp() {
         pojazd = new Pojazd();
         pojazd.setTyp("supersamochód");
         pojazd.setMarka("Ferrari");
@@ -22,6 +29,7 @@ class KreatorFormularzyTest {
     }
 
     @Test
+    @ExtendWith(KreatorFormularzyTest.class)
     void stworzFormularz() {
         FormularzAktualizowania formularzAktualizowania = new FormularzAktualizowania(pojazd);
 
@@ -31,5 +39,20 @@ class KreatorFormularzyTest {
         assertSame(formularzAktualizowania.getSilnik(), pojazd.getSilnik(), "Niepoprawny silnik");
         assertEquals(formularzAktualizowania.getMoc(), pojazd.getMoc(), "Niepoprawna moc");
         assertEquals(formularzAktualizowania.getMoment_obrotowy(), pojazd.getMoment_obrotowy(), "Niepoprawny moment");
+    }
+
+    @Test
+    @ExtendWith(KreatorFormularzyTest.class)
+    void testExeption(){
+        throw new IllegalFormatCodePointException(0x110000);
+    }
+
+    @Override
+    public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
+        if (throwable instanceof IllegalFormatCodePointException) {
+            System.out.println("Złapano wyjątek IllegalFormatCodePointException: " + throwable.getMessage());
+        } else {
+            throw throwable;
+        }
     }
 }

@@ -14,6 +14,7 @@ import java.lang.reflect.Field;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Tag("Weryfikacja")
 class WeryfikacjaDokumentowTest {
     @Mock
     private KontekstPowiadomienia kontekstMock;

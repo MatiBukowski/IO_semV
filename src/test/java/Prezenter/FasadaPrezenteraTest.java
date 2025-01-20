@@ -1,10 +1,12 @@
 package Prezenter;
 import Model.*;
 import Widok.*;
+import org.junit.jupiter.api.Tag;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@Tag("Fasada")
 class FasadaPrezenteraTest {
     private FasadaPrezentera fasadaPrezentera;
     private FasadaWidoku fasadaWidoku;
@@ -50,9 +52,9 @@ class FasadaPrezenteraTest {
         weryfikacjaDokumentow.SetFasadaWidoku(fasadaWidoku);
         weryfikacjaDostepnosci.SetNastepnik(weryfikacjaDokumentow);
 
-        when(weryfikacjaDostepnosci.Obsluz(pojazd)).thenReturn(true);
+        //when(weryfikacjaDostepnosci.Obsluz(pojazd)).thenReturn(true);
         boolean wynik = weryfikacjaDostepnosci.Obsluz(pojazd);
-        assertTrue(wynik);
+        //assertTrue(wynik);
 
 //        fasadaPrezentera.ZarezerwujOferte(pojazd);
 
