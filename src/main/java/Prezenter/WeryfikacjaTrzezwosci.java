@@ -5,6 +5,7 @@ import Model.Pojazd;
 public class WeryfikacjaTrzezwosci extends PodstawowaObsluga {
 
 	private boolean decyzja;
+	private boolean dec;
 	private boolean kierowcaTrzezwy;
 	private Powiadomienie powiadomienieOTrzezwosci;
 	public WeryfikacjaTrzezwosci() {
@@ -18,7 +19,7 @@ public class WeryfikacjaTrzezwosci extends PodstawowaObsluga {
 	public boolean AnalizaPomiaru() {
 		System.out.println("Dane z alkomatu zamontowanego w samochodzie");
 
-		return true;
+		return dec;
 	}
 
 	@Override
@@ -48,6 +49,10 @@ public class WeryfikacjaTrzezwosci extends PodstawowaObsluga {
 	}
 	public void ZablokujSprzet() {
 		System.out.println("Zablokowanie sprzętu");
+	}
+
+	public void setKierowcaTrzezwy(boolean dec) {
+		this.dec = dec;
 	}
 
 }

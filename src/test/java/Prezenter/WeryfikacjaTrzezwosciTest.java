@@ -21,8 +21,10 @@ class WeryfikacjaTrzezwosciTest {
     public void testObsluz_KierowcaTrzezwy() {
         // Konfiguracja stanu klasy (np. symulacja trzeźwości kierowcy)
         new mockit.Expectations() {{
-            weryfikacjaTrzezwosci.ZweryfikujTrzezwosc();  // Symulujemy trzeźwego kierowcę
-            result = true;  // Kierowca jest trzeźwy
+            weryfikacjaTrzezwosci.setKierowcaTrzezwy(true);
+
+//            weryfikacjaTrzezwosci.AnalizaPomiaru();  // Symulujemy trzeźwego kierowcę
+//            result = true;
         }};
 
         boolean decyzja = weryfikacjaTrzezwosci.Obsluz(pojazd);
