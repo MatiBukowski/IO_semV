@@ -1,0 +1,9 @@
+---
+Test
+---
+!path target/classes
+
+!|Prezenter.PowiadomienieFixture|
+|decyzja|PowiadomODostepnosci?|PowiadomOPoprawnosciDok?|PowiadomOTrzezwosci?|
+|true|Wybrany pojazd jest dostępny|Weryfikacja dokumentów zakończona sukcesem|Klient jest trzeźwy - sprzęt odblokowany|
+|false|Wybrany pojazd jest niedostępny|Weryfikacja dokumentów zakończona niepowodzeniem - niepoprawne dokumenty|Klient jest nietrzeźwy - sprzęt zablokowany|

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20241207</FitNesseVersion>
+  <rootPath>FrontPage.PowiadomienieTest.Powiadom</rootPath>
+  <result>
+    <counts>
+      <right>6</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <date>2025-01-27T18:38:25+01:00</date>
+    <runTimeInMillis>2</runTimeInMillis>
+    <content>&lt;div class="collapsible closed"&gt;&lt;ul&gt;&lt;li&gt;&lt;a href='#' class='expandall'&gt;Expand&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href='#' class='collapseall'&gt;Collapse&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+	&lt;p class="title"&gt;Included page: &lt;a href="FrontPage.PowiadomienieTest.SetUp"&gt;.FrontPage.PowiadomienieTest.SetUp&lt;/a&gt; &lt;a href="FrontPage.PowiadomienieTest.SetUp?edit&amp;amp;redirectToReferer=true&amp;amp;redirectAction=" class="edit"&gt;(edit)&lt;/a&gt;&lt;/p&gt;
+	&lt;div&gt;&lt;span class="meta"&gt;classpath: |testyfitnessefixture.SetUp|&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br/&gt;&lt;span class="meta"&gt;classpath: target/classes&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="4"&gt;Prezenter.PowiadomienieFixture&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;decyzja&lt;/td&gt;
+		&lt;td&gt;PowiadomODostepnosci?&lt;/td&gt;
+		&lt;td&gt;PowiadomOPoprawnosciDok?&lt;/td&gt;
+		&lt;td&gt;PowiadomOTrzezwosci?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;true&lt;/td&gt;
+		&lt;td class="pass"&gt;Wybrany pojazd jest dostępny&lt;/td&gt;
+		&lt;td class="pass"&gt;Weryfikacja dokumentów zakończona sukcesem&lt;/td&gt;
+		&lt;td class="pass"&gt;Klient jest trzeźwy - sprzęt odblokowany&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;false&lt;/td&gt;
+		&lt;td class="pass"&gt;Wybrany pojazd jest niedostępny&lt;/td&gt;
+		&lt;td class="pass"&gt;Weryfikacja dokumentów zakończona niepowodzeniem - niepoprawne dokumenty&lt;/td&gt;
+		&lt;td class="pass"&gt;Klient jest nietrzeźwy - sprzęt zablokowany&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>Powiadom</relativePageName>
+  </result>
+  <executionLog>
+    <testSystem>fit:fit.FitServer</testSystem>
+    <command>"C:\Program Files\Java\jdk-20\bin\java" -cp target/classes;C:\Users\Szef\Desktop\IO_semV\fitnesse-standalone.jar fit.FitServer Bircheses 58912 3863</command>
+    <exitCode>0</exitCode>
+    <stdOut>Powiadomienie systemowe: Wybrany pojazd jest dost�pny
+Powiadomienie systemowe: Weryfikacja dokument�w zako�czona sukcesem
+Powiadomienie SMS: Klient jest trze�wy - sprz�t odblokowany
+Powiadomienie systemowe: Wybrany pojazd jest niedost�pny
+Powiadomienie systemowe: Weryfikacja dokument�w zako�czona niepowodzeniem - niepoprawne dokumenty
+Powiadomienie SMS: Klient jest nietrze�wy - sprz�t zablokowany
+</stdOut>
+    <stdErr></stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>1</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>291</totalRunTimeInMillis>
+</testResults>
+
