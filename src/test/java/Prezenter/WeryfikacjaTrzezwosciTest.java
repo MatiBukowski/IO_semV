@@ -17,25 +17,25 @@ class WeryfikacjaTrzezwosciTest {
     @Mocked
     private Powiadomienie powiadomienieOTrzezwosci;  // Mock dla powiadomienia
 
-    @Capturing
-    private boolean capturedTrzezwoscStatus;
-
     @Test
     public void testObsluz_KierowcaTrzezwy() {
+        // Konfiguracja stanu klasy (np. symulacja trzeźwości kierowcy)
         new mockit.Expectations() {{
-            weryfikacjaTrzezwosci.ZweryfikujTrzezwosc();
-            result = true;
-            capturedTrzezwoscStatus = true;
+            weryfikacjaTrzezwosci.setKierowcaTrzezwy(true);
+
+//            weryfikacjaTrzezwosci.AnalizaPomiaru();  // Symulujemy trzeźwego kierowcę
+//            result = true;
         }};
 
         boolean decyzja = weryfikacjaTrzezwosci.Obsluz(pojazd);
 
+        // Weryfikacja zachowania
         new mockit.Verifications() {{
-            powiadomienieOTrzezwosci.PowiadomOTrzezwosci(capturedTrzezwoscStatus);
+            powiadomienieOTrzezwosci.PowiadomOTrzezwosci(true);  // Powiadomienie o trzeźwości
         }};
 
+        // Sprawdzenie wyniku
         assertTrue(decyzja, "Kierowca powinien być trzeźwy, więc decyzja powinna być true");
-        assertTrue(capturedTrzezwoscStatus, "Status powiadomienia powinien być true, ponieważ kierowca jest trzeźwy");
     }
 
 }
